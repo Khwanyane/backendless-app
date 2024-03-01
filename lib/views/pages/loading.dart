@@ -18,10 +18,11 @@ class _LoadingState extends State<Loading> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+      backgroundColor: Colors.grey[300],
+      body: const Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [Text('Loading..')],
+          children: [Text('rare')],
         ),
       ),
     );

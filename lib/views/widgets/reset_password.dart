@@ -9,7 +9,7 @@ void restorePassowrd(BuildContext context, {required String email}) async {
     String results =
         await context.read<UserServices>().resetUserPassword(email.trim());
     if (results != 'OK') {
-      snackBar(context, results);
+      snackBar(context, "email not recognised");
     } else {
       snackBar(context, 'Please check your email');
     }

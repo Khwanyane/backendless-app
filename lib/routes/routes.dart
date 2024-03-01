@@ -3,6 +3,7 @@ import 'package:asignment_2/views/pages/loading.dart';
 import 'package:asignment_2/views/pages/login.dart';
 import 'package:asignment_2/views/pages/register.dart';
 import 'package:asignment_2/views/pages/reset_password.dart';
+import 'package:asignment_2/views/pages/wish_list.dart';
 import 'package:flutter/material.dart';
 
 class RouteManager {
@@ -13,6 +14,7 @@ class RouteManager {
   static const String homePage = '/homePage';
   static const String unitViewPage = '/unitViewPage';
   static const String resetPassword = '/resetPassword';
+  static const String wishList = '/wishList';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -35,6 +37,10 @@ class RouteManager {
       case resetPassword:
         return MaterialPageRoute(
           builder: (context) => const ResetPassword(),
+        );
+      case wishList:
+        return MaterialPageRoute(
+          builder: (context) => const WishList(),
         );
       default:
         throw const FormatException('Route not found');

@@ -19,7 +19,7 @@ void userRegistration(BuildContext context,
       snackBar(context, 'Registration successful');
       Navigator.of(context).pushNamed(RouteManager.loginPage);
     } else {
-      snackBar(context, results);
+      snackBar(context, "Please try again");
     }
   } else {
     snackBar(context, 'Please enter all fields');

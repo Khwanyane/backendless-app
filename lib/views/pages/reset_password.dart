@@ -1,6 +1,5 @@
+import 'package:asignment_2/views/widgets/button.dart';
 import 'package:flutter/material.dart';
-
-import '../../routes/routes.dart';
 import '../widgets/reset_password.dart';
 
 class ResetPassword extends StatefulWidget {
@@ -30,46 +29,60 @@ class _ResetPasswordState extends State<ResetPassword> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed(RouteManager.loginPage);
-          },
-          icon: const Icon(Icons.cancel),
-          color: Colors.black,
-        ),
-        backgroundColor: Colors.white,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: TextField(
+      backgroundColor: Colors.grey[300],
+      body: SafeArea(
+          child: Center(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 50,
+              ),
+              const Icon(
+                Icons.email,
+                size: 100,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              Text(
+                'E M A I L',
+                style: TextStyle(
+                  color: Colors.grey[500],
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              TextField(
+                autofocus: true,
                 keyboardType: TextInputType.emailAddress,
                 controller: email,
-                decoration: const InputDecoration(
-                    hintText: 'Please enter your email',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(9))),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(9)))),
+                decoration: InputDecoration(
+                  hintText: 'email',
+                  border: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  focusedBorder: const OutlineInputBorder(
+                    borderSide: BorderSide(color: Colors.white),
+                  ),
+                  fillColor: Colors.grey.shade200,
+                  filled: true,
+                ),
               ),
-            ),
-            const SizedBox(
-              height: 9,
-            ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
-                onPressed: () {
-                  restorePassowrd(context, email: email.text.trim());
-                },
-                child: const Text('Send')),
-          ],
+              const SizedBox(
+                height: 40,
+              ),
+              Button(
+                  onTap: () {
+                    restorePassowrd(context, email: email.text.trim());
+                  },
+                  text: "Submit"),
+            ],
+          ),
         ),
-      ),
+      )),
     );
   }
 }

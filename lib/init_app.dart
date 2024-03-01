@@ -6,10 +6,10 @@ import 'package:asignment_2/services/user_services.dart';
 import '../../routes/routes.dart';
 
 class InitializingApp {
-  static const String appID = '99373697-E2AA-1855-FFBF-0B7ED30A3600';
-  static const String androidApiKey = '8A57CA23-14F6-4886-9CB0-9C50DC38CE9F';
-  static const String iosApiKey = '108D56A0-81D5-4001-B172-B5FF8E3C02C5';
-  static const String jsKey = '67350001-7290-407C-82F4-9C6CA09A9DA7';
+  static const String appID = '952992C7-CEBC-D21B-FF0E-7526A030C200';
+  static const String androidApiKey = 'EE32ED64-1AE2-45C1-B001-E2ADAFC62E8F';
+  static const String iosApiKey = '7BF49A41-03B4-4716-A75E-5C8972E48AAF';
+  static const String jsKey = 'BAB0DDAA-1514-476D-AA9A-54D8B614A4C2';
 
   static void initializeApp(BuildContext context) async {
     await Backendless.initApp(

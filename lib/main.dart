@@ -1,3 +1,4 @@
+import 'package:asignment_2/models/items.dart';
 import 'package:asignment_2/routes/routes.dart';
 import 'package:asignment_2/services/user_services.dart';
 
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: ((context) => UserServices())),
+        ChangeNotifierProvider(create: ((context) => Items())),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

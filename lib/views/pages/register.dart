@@ -1,7 +1,7 @@
+import 'package:asignment_2/views/widgets/button.dart';
 import 'package:asignment_2/views/widgets/registering_a_user.dart';
 
 import 'package:flutter/material.dart';
-import 'package:asignment_2/init_app.dart';
 
 import '../../routes/routes.dart';
 
@@ -39,78 +39,125 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed(RouteManager.loginPage);
-          },
-          icon: const Icon(Icons.cancel),
-          color: Colors.black,
-        ),
-        backgroundColor: Colors.white,
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(20.0),
+      backgroundColor: Colors.grey[300],
+      body: SafeArea(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                const SizedBox(
+                  height: 50,
+                ),
+                const Icon(
+                  Icons.person,
+                  size: 100,
+                ),
+                const SizedBox(
+                  height: 30,
+                ),
+                Text(
+                  'R E G I S T E R',
+                  style: TextStyle(
+                    color: Colors.grey[500],
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextField(
+                  autofocus: true,
+                  keyboardType: TextInputType.emailAddress,
+                  controller: email,
+                  decoration: InputDecoration(
+                    hintText: 'email',
+                    border: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    fillColor: Colors.grey.shade200,
+                    filled: true,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextField(
+                  autofocus: true,
+                  controller: name,
+                  keyboardType: TextInputType.text,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: 'first name',
+                    border: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    fillColor: Colors.grey.shade200,
+                    filled: true,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                TextField(
+                  autofocus: true,
+                  controller: password,
+                  keyboardType: TextInputType.text,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: 'password',
+                    border: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    focusedBorder: const OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.white),
+                    ),
+                    fillColor: Colors.grey.shade200,
+                    filled: true,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
 
-              // Email
+                Button(
+                    onTap: () {
+                      userRegistration(context,
+                          email: email.text.trim(),
+                          name: name.text.trim(),
+                          password: password.text.trim());
+                    },
+                    text: "Register"),
 
-              child: TextField(
-                controller: email,
-                keyboardType: TextInputType.emailAddress,
-                decoration: const InputDecoration(
-                    hintText: 'Please enter your email',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(9))),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(9)))),
-              ),
+                // ),
+                const SizedBox(
+                  height: 90,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Text('Already registered? '),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).pushNamed(RouteManager.loginPage);
+                      },
+                      child: const Text(
+                        'Login here',
+                        style: TextStyle(
+                          color: Colors.blue,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-
-              // Name
-              child: TextField(
-                controller: name,
-                keyboardType: TextInputType.text,
-                decoration: const InputDecoration(
-                    hintText: 'Please enter your name',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(9))),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(9)))),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(20.0),
-
-              //Password
-              child: TextField(
-                controller: password,
-                keyboardType: TextInputType.text,
-                obscureText: true,
-                decoration: const InputDecoration(
-                    hintText: 'Please enter your password',
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(9))),
-                    focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(9)))),
-              ),
-            ),
-            ElevatedButton(
-                style: ElevatedButton.styleFrom(backgroundColor: Colors.grey),
-                onPressed: () {
-                  userRegistration(context,
-                      email: email.text.trim(),
-                      name: name.text.trim(),
-                      password: password.text.trim());
-                },
-                child: const Text('Register')),
-          ],
+          ),
         ),
       ),
     );

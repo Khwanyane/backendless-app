@@ -13,7 +13,7 @@ void loginAUser(BuildContext context,
     if (results == 'OK') {
       Navigator.of(context).popAndPushNamed(RouteManager.homePage);
     } else {
-      snackBar(context, results);
+      snackBar(context, "Incorrect details, please try again");
     }
   } else {
     snackBar(context, 'Please enter all fields');
